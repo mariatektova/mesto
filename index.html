@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./pages/index.css">
+  <title>Document</title>
+</head>
+<body class="root">
+  <page class="page">
+    <header class="header">
+      <img src="./images/logo.svg" class="header__logo">
+    </header>
+    
+    <section class="profile">
+      <div class="profile__main">
+      <div class="profile__avatar"></div>
+      <div class="profile__info">
+          <h1 class="profile__info-name">Жак-Ив Кусто</h1>
+          <button type="button" class="profile__info-button"></button>
+          <p class="profile__info-text">Исследователь океана</p>
+      </div>
+      </div>
+      <button class="profile__add-button"></button>
+    </section>
+    <section class="elements">
+      <div class="elements__card">
+        <img src="./images/jacobs.jpg" alt="" class="elements__card-image">
+        <div class="elements__card-item">
+        <h2 class="elements__card-name">Колодец Иакова</h2>
+        <div class="elements__card-like"></div>
+      </div>
+      </div>
+
+      <div class="elements__card">
+        
+        <img src="./images/devil.jpg" alt="" class="elements__card-image">
+        <div class="elements__card-item">
+        <h2 class="elements__card-name">Пещеры Дьявола</h2>
+        <div class="elements__card-like"></div>
+        </div>
+      </div>
+
+      <div class="elements__card">
+        <img src="./images/hole.jpg" alt="" class="elements__card-image">
+        <div class="elements__card-item">
+        <h2 class="elements__card-name">Голубая дыра</h2>
+        <div class="elements__card-like"></div>
+        </div>
+        </div>
+      </div>
+
+      <div class="elements__card">
+        <img src="./images/submarine.png" alt="" class="elements__card-image">
+        <div class="elements__card-item">
+        <h2 class="elements__card-name">Подводная лодка</h2>
+        <div class="elements__card-like"></div>
+        </div>
+      </div>
+
+      <div class="elements__card">
+        <img src="./images/neft.jpg" alt="" class="elements__card-image">
+        <div class="elements__card-item">
+        <h2 class="elements__card-name">Нефтяные платформы</h2>
+        <div class="elements__card-like"></div>
+      </div>
+      </div>
+      <div class="elements__card">
+        <img src="./images/antarctic.jpeg" alt="" class="elements__card-image">
+        <div class="elements__card-item">
+          <h2 class="elements__card-name">Антарктика</h2>
+          <div class="elements__card-like"></div>
+        </div>
+      </div>
+    </section>
+    <footer class="footer">
+      <p class="footer__author">© 2022 Mesto Russia</p>
+    </footer>
+    <section class="popup">
+      <div class="popup__container">
+          <form class="form" method="get">
+            <button class="form__close" type="button"></button>
+            <h2 class="form__title">Редактировать профиль</h2>
+            <input class="form__input" type="text" name="name">
+            <input class="form__input" type="text" name="job">
+            <button class="form__button" type="submit">Сохранить</button>
+          </form>
+      </div>
+    </section>
+  </page>
+<script src="./script/popup.js"></script>
+</body>
+</html>
