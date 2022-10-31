@@ -1,4 +1,6 @@
 # Проект: Место
+https://mariatektova.github.io/mesto/
+
 
 Место - проект интерфейса личной страницы пользователя
 Использованы: flex, grid, БЭМ - nested, media -запросы
