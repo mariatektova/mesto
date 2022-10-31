@@ -39,11 +39,7 @@
     height: 16px;
   }
 }
-@media screen and (min-width: 560px) {
-  .profile__add-button {
-    width: 50%;
-  }
-}
+
 @media screen and (min-width: 768px) {
   .profile__add-button {
     width: 150px;
