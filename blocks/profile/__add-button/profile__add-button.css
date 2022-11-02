@@ -4,6 +4,7 @@
   border: 1px solid #fff;
   color: #fff;
   margin-top: 36px;
+  cursor: pointer;
 }
 .profile__add-button::before {
   content: "";
@@ -13,6 +14,12 @@
   background-size: cover;
 
 }
+
+.profile__add-button:hover {
+  opacity: 0.6;
+  transition: .2 linear;
+}
+
 @media screen and (min-width: 320px) {
   .profile__add-button {
     margin-top: 36px;

@@ -1,5 +1,5 @@
-.elements__card-like {
-  background-image: url('../../../../images/heart.svg');
+.elements__card_like_active {
+  background-image: url('../../../../images/like_active.png');
   background-repeat: no-repeat;
   background-size: cover;
   width: 22px;
@@ -8,4 +8,5 @@
   margin-right: 15px;
   align-self: center;
   border: none;
+  cursor: pointer;
 }

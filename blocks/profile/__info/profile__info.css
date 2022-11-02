@@ -5,4 +5,5 @@
   grid-template-areas:
     "name name button"
     "text text .";
+  text-align: center;
 }
