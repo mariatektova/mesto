@@ -5,7 +5,8 @@
   background-size: cover;
   width: 20px;
   height: 20px;
-
+  top: -37px;
+  right: 0;
   background-color: transparent;
   border: none;
   cursor: pointer;
@@ -16,12 +17,6 @@
   transition: 0.2 linear;
 }
 
-@media screen and (min-width: 320px) {
-  .popup__close {
-    top: -37px;
-    right: 0;
-  }
-}
 @media screen and (min-width: 768px) {
   .popup__close {
     top: -37px;

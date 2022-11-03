@@ -6,16 +6,11 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-}
-
-@media screen and (min-width: 320px) {
-  .profile__info-name {
-    font-size: 27px;
-    line-height: 33px;
-    padding-top: 26px;
-    padding-left: 22px;
-    max-width: 217px;
-  }
+  font-size: 27px;
+  line-height: 33px;
+  padding-top: 26px;
+  padding-left: 22px;
+  max-width: 217px;
 }
 
 @media screen and (min-width: 768px) {
@@ -31,7 +26,6 @@
   .profile__info-name {
     font-size: 42px;
     line-height: 48px;
-    padding-top: 0;
     max-width: 294px;
   }
 }
