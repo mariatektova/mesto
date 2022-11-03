@@ -5,5 +5,9 @@
   grid-template-areas:
     "name name button"
     "text text .";
-  text-align: center;
+}
+@media screen and (min-width: 1024px) {
+  .profile__info {
+    padding-top: 18px;
+  }
 }

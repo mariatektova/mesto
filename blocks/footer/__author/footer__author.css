@@ -4,3 +4,13 @@
   line-height: 17px;
   color: #545454;
 }
+@media screen and (min-width: 320px) {
+  .footer__author {
+    margin-left: 19px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .footer__author {
+    margin-left: 0;
+  }
+}

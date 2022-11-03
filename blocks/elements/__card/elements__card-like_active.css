@@ -1,5 +1,5 @@
-.elements__card_like {
-  background-image: url('../../../../images/heart.svg');
+.elements__card-like_active {
+  background-image: url('../../../images/like_active.svg');
   background-repeat: no-repeat;
   background-size: cover;
   width: 22px;
@@ -9,10 +9,4 @@
   align-self: center;
   border: none;
   cursor: pointer;
-
-}
-
-.elements__card_like:hover {
-  opacity: .5;
-  transition: .2 linear;
 }
