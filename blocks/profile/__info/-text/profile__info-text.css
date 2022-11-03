@@ -8,8 +8,9 @@
   overflow: hidden;
   font-size: 14px;
   line-height: 17px;
-  padding-top: 14px;
+  padding-top: 6px;
   padding-left: 22px;
+  max-width: 217px;
 }
 
 @media screen and (min-width: 768px) {
@@ -19,5 +20,6 @@
     padding-top: 6px;
     padding-left: 0;
     text-align: left;
+    max-width: 294px;
   }
 }

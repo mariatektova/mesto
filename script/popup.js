@@ -28,7 +28,8 @@ function formSubmitHandler(elem) {
 
   closeModal();
 }
-changeElem();
 openElem.addEventListener("click", openModal);
 formElem.addEventListener("submit", formSubmitHandler);
 closeElem.addEventListener("click", closeModal);
+changeElem();
+
