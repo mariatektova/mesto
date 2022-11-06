@@ -1,12 +1,4 @@
 .element__like_active {
   background-image: url('../../images/like_active.svg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 22px;
-  height: 19px;
-  background-color: transparent;
-  margin-right: 15px;
-  align-self: center;
-  border: none;
-  cursor: pointer;
+
 }

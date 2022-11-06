@@ -9,5 +9,7 @@
 @media screen and (min-width: 768px) {
   .footer__author {
     margin-left: 0;
+    font-size: 18px;
+    line-height: 22px;
   }
 }
