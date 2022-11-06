@@ -22,8 +22,8 @@
 @import url(../blocks/element/element__image.css);
 @import url(../blocks/element/element__item.css);
 @import url(../blocks/element/element__name.css);
-@import url(../blocks/element/element__like_active.css);
 @import url(../blocks/element/element__like.css);
+@import url(../blocks/element/element__like_active.css);
 
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__author/footer__author.css);

@@ -7,18 +7,23 @@ let jobInput = formElem.querySelector('input[name="job"]');
 let profileName = document.querySelector(".profile__info-name");
 let profileText = document.querySelector(".profile__info-text");
 
-function openModal() {
-  popupElem.classList.add("popup_opened");
-}
-
-function closeModal() {
-  popupElem.classList.remove("popup_opened");
-}
-
 function changeElem() {
   nameInput.value = profileName.textContent;
   jobInput.value = profileText.textContent;
 }
+
+function openModal() {
+  popupElem.classList.add("popup_opened");
+changeElem();
+
+}
+
+function closeModal() {
+  popupElem.classList.remove("popup_opened");
+  elem.preventDefault();
+
+}
+
 
 function formSubmitHandler(elem) {
   elem.preventDefault();
@@ -31,5 +36,4 @@ function formSubmitHandler(elem) {
 openElem.addEventListener("click", openModal);
 formElem.addEventListener("submit", formSubmitHandler);
 closeElem.addEventListener("click", closeModal);
-changeElem();
 
