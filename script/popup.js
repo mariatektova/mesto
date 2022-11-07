@@ -20,7 +20,6 @@ changeElem();
 
 function closeModal() {
   popupElem.classList.remove("popup_opened");
-  elem.preventDefault();
 
 }
 
