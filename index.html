@@ -37,7 +37,7 @@
             <img src="./images/devil.jpg" alt="Пещеры Дьявола" class="element__image">
             <div class="element__item">
               <h2 class="element__name">Пещеры Дьявола</h2>
-              <button class="element__like" type="button"></button>
+              <button class="element__like" type="submit"></button>
             </div>
           </div>
 
@@ -76,13 +76,24 @@
       <footer class="footer">
         <p class="footer__author">© 2022 Mesto Russia</p>
       </footer>
-      <section class="popup">
+      <section class="popup popup__profile">
         <div class="popup__container">
           <button class="popup__close" type="button"></button>
           <h2 class="popup__title">Редактировать профиль</h2>
           <form class="form" method="get" name="form">
             <input class="form__input" type="text" name="name" placeholder="Введите имя">
             <input class="form__input" type="text" name="job" placeholder="Введите профессию">
+            <button class="form__button" type="submit">Сохранить</button>
+          </form>
+        </div>
+      </section>
+      <section class="popup popup__card">
+        <div class="popup__container">
+          <button class="popup__close" type="button"></button>
+          <h2 class="popup__title">Новое место</h2>
+          <form class="form" method="get" name="form">
+            <input class="form__input" type="text" name="title" placeholder="Название">
+            <input class="form__input" type="text" name="link" placeholder="Ссылка на картинку">
             <button class="form__button" type="submit">Сохранить</button>
           </form>
         </div>
