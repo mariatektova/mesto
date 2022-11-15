@@ -84,42 +84,43 @@ const initialCards = [
 
 const elemContainer = document.querySelector('.elements');
 
+const handleLikeBtn = (event) => {
+  event.target.closest('.element__like').classList.toggle('element__like_active');
+};
 
-function createElem (name, link) {
+
+function createElem (link, name) {
 const tempElem = document.querySelector('#tmpl-elem').content;
 
   const newElem = tempElem.querySelector('.element').cloneNode(true);
 
-  const elemImage = tempElem.querySelector('.element__image');
+  const elemImage = newElem.querySelector('.element__image');
 
 
-  const elemItem = tempElem.querySelector('.element__item');
-
-  const elemName = tempElem.querySelector('.element__name');
-  initialCards.name = elemName.value;
-  const elemLikeBtn = tempElem.querySelector('.element__like');
+  const elemItem = newElem.querySelector('.element__item');
 
 
 
-  const elemDeleteBtn = tempElem.querySelector('.element__delete-btn');
+  const elemName = newElem.querySelector('.element__name');
 
+  const elemLikeBtn = newElem.querySelector('.element__like');
+  elemLikeBtn.addEventListener('click', handleLikeBtn);
   elemImage.src = link;
   elemImage.alt = name;
   elemName.textContent = name;
 
-  elemLikeBtn.addEventListener('click', (event) => event.target.classList.toggle('element__like_active'));
 
   return newElem;
 
 
 }
 
-const renderCard = (name,link) => {
-  elemContainer.prepend(createElem(name,link));
+const renderCard = (link, name) => {
+  elemContainer.prepend(createElem(link, name));
 };
 
 
-initialCards.forEach(item => renderCard(elemContainer, createElem(item.name, item.link)));
+initialCards.forEach(item => renderCard(item.link, item.name));
 
 
 function formSubmitHandlerCard(elem) {
