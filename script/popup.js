@@ -84,6 +84,7 @@ const initialCards = [
 
 const elemContainer = document.querySelector('.elements');
 
+
 function createElem (name, link) {
 const tempElem = document.querySelector('#tmpl-elem').content;
 
@@ -97,13 +98,20 @@ const tempElem = document.querySelector('#tmpl-elem').content;
   const elemName = tempElem.querySelector('.element__name');
   initialCards.name = elemName.value;
   const elemLikeBtn = tempElem.querySelector('.element__like');
+
+
+
   const elemDeleteBtn = tempElem.querySelector('.element__delete-btn');
 
   elemImage.src = link;
   elemImage.alt = name;
   elemName.textContent = name;
 
+  elemLikeBtn.addEventListener('click', (event) => event.target.classList.toggle('element__like_active'));
+
   return newElem;
+
+
 }
 
 const renderCard = (name,link) => {
