@@ -84,14 +84,6 @@ const initialCards = [
 
 const elemContainer = document.querySelector('.elements');
 
-const handleDeleteCard = (event) => {
-  event.target.closest('.element').remove();
-}
-
-const handleCheckCard = (event) => {
-  event.target.closest('.element').add();
-}
-
 function createElem (name, link) {
 const tempElem = document.querySelector('#tmpl-elem').content;
 
