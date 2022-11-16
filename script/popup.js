@@ -87,6 +87,9 @@ form.addEventListener("submit", formSubmitHandler);
 
 //карточки
 
+const lightbox = document.querySelector('.lightbox');
+const lightboxImg = document.querySelector('.lightbox__image');
+const lightboxTitle = document.querySelector('.lightbox__title');
 
 
 
@@ -99,9 +102,9 @@ function createElem(link, name) {
 
   elemImage.addEventListener('click', ()=> {
     openPopup(popupLightbox);
-    imgFigure.src = img.src;
-    imgFigure.alt = title.textContent;
-    subtitleFigure.textContent = title.textContent;
+
+    lightboxImg.src = elemImage.src;
+    lightboxTitle.textContent = elemName.textContent;
   });
 
   const elemItem = newElem.querySelector(".element__item");

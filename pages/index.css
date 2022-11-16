@@ -32,14 +32,21 @@
 @import url(../blocks/popup/popup.css);
 @import url(../blocks/popup/__card/popup__card.css);
 @import url(../blocks/popup/__profile/popup__profile.css);
+@import url(../blocks/popup/__lightbox/popup__lightbox.css);
 
 @import url(../blocks/popup/_opened/popup_opened.css);
 @import url(../blocks/popup/__close/popup__close.css);
 @import url(../blocks/popup/__title/popup__title.css);
 
-
 @import url(../blocks/popup/__container/popup__container.css);
+@import url(../blocks/popup/__container/popup__container-form.css);
+
 @import url(../blocks/form/form.css);
 @import url(../blocks/form/__element/form__element.css);
 @import url(../blocks/form/__input/form__input.css);
 @import url(../blocks/form/__button/form__button.css);
+
+
+@import url(../blocks/lightbox/lightbox.css);
+@import url(../blocks/lightbox/__image/lightbox__image.css);
+@import url(../blocks/lightbox/__title/lightbox__title.css);
