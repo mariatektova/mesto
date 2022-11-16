@@ -6,7 +6,7 @@ const form = document.querySelector(".form");
 const nameInput = form.querySelector('input[name="name"]');
 const jobInput = form.querySelector('input[name="job"]');
 const formElement = document.querySelector('form[name ="element"]');
-const textInput = formElement.querySelector('input[name="text"]');
+const textInput = formElement.querySelector('input[name="title"]');
 const linkInput = formElement.querySelector('input[name="link"]');
 const profileName = document.querySelector(".profile__info-name");
 const profileText = document.querySelector(".profile__info-text");
