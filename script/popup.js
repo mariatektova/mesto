@@ -75,7 +75,7 @@ function formSubmitHandler(elem) {
   profileName.textContent = nameInput.value;
   profileText.textContent = jobInput.value;
 
-  closeModal(popupTarget);
+  closeModal(popup);
 }
 
 closeElem.forEach((element) => {
@@ -141,9 +141,9 @@ openPopupBtn.addEventListener("click", () => {
   openPopup(popupCard);
 });
 
-const elemFormBtn = document.querySelector('button[name="element"]');
 
-elemFormBtn.addEventListener("submit", (elem) => {
-  elem.preventDefault;
-  renderCard(textInput.value, linkInput.value);
+formElement.addEventListener("submit", (elem) => {
+  elem.preventDefault(formElement);
+  renderCard(linkInput.value,textInput.value);
+  closeModal(popupCard);
 });
