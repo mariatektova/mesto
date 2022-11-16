@@ -18,8 +18,8 @@ const formElem = document.querySelector("form__element");
 const formElemText = document.querySelector('input[name="text"]');
 const formElemLink = document.querySelector('input[name="link"]');
 const popupLightbox = document.querySelector(".popup_lightbox");
-const lightboxImg = document.querySelector(".popup_lightbox__img");
-const lightboxTitle = document.querySelector(".popup_lightbox__text");
+const lightboxImg = document.querySelector(".popup_lightbox_img");
+const lightboxTitle = document.querySelector(".popup_lightbox_text");
 
 
 const handleLikeBtn = (event) => {
