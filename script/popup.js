@@ -75,7 +75,7 @@ function formSubmitHandler(elem) {
   profileName.textContent = nameInput.value;
   profileText.textContent = jobInput.value;
 
-  closeModal(popup);
+  closeModal(popupProfile);
 }
 
 closeElem.forEach((element) => {
