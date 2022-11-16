@@ -65,13 +65,20 @@ function openPopup(popup) {
   changeValue();
 }
 
+function closeModal(popup) {
+  popup.classList.remove('popup_opened');
+}
+
 function formSubmitHandler(elem) {
   elem.preventDefault();
+  const popupActive = elem.target.closest('.popup');
+
 
   profileName.textContent = nameInput.value;
   profileText.textContent = jobInput.value;
 
-  closeModal();
+  closeModal(popupActive);
+
 }
 
 closeElem.forEach((element) => {
@@ -147,6 +154,6 @@ const elemFormBtn = document.querySelector('button[name="element"]');
 
 elemFormBtn.addEventListener('submit', (elem)=>{
   elem.preventDefault;
-  renderCard(textInput.value, linkInput.value);
-
-})
+  renderCard(createElem(textInput.value, linkInput.value));
+  closeModal(popupCard);
+});
