@@ -5,6 +5,8 @@ const closeElem = document.querySelectorAll(".popup__close");
 const form = document.querySelector(".form");
 const nameInput = form.querySelector('input[name="name"]');
 const jobInput = form.querySelector('input[name="job"]');
+const textInput = form.querySelector('input[name="text"]');
+const linkInput = form.querySelector('input[name="link"]');
 const profileName = document.querySelector(".profile__info-name");
 const profileText = document.querySelector(".profile__info-text");
 const likeElem = document.querySelector(".element__like");
@@ -141,3 +143,10 @@ openPopupBtn.addEventListener("click", () => {
   createElem();
 });
 
+const elemFormBtn = document.querySelector('button[name="element"]');
+
+elemFormBtn.addEventListener('submit', (elem)=>{
+  elem.preventDefault;
+  renderCard(textInput.value, linkInput.value);
+
+})
