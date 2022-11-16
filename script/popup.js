@@ -141,9 +141,8 @@ openPopupBtn.addEventListener("click", () => {
   openPopup(popupCard);
 });
 
-
-formElement.addEventListener("submit", (elem) => {
+const elemFormBtn = document.querySelector('button[name="element"]');
+elemFormBtn.addEventListener("submit", (elem) => {
   elem.preventDefault;
   renderCard(textInput.value, linkInput.value);
-  closeModal(popupCard);
 });
