@@ -52,8 +52,7 @@ const handleDeleteElem = (event) => {
 const formElem = document.querySelector("form__element");
 const formElemText = document.querySelector('input[name="text"]');
 const formElemLink = document.querySelector('input[name="link"]');
-const popupLightbox = document.querySelector('.popup__lightbox');
-
+const popupLightbox = document.querySelector(".popup__lightbox");
 
 function changeValue() {
   nameInput.value = profileName.textContent;
@@ -66,26 +65,24 @@ function openPopup(popup) {
 }
 
 function closeModal(popup) {
-  popup.classList.remove('popup_opened');
+  popup.classList.remove("popup_opened");
 }
 
 function formSubmitHandler(elem) {
   elem.preventDefault();
-  const popupActive = elem.target.closest('.popup');
-
+  const popupTarget = elem.target.closest(".popup");
 
   profileName.textContent = nameInput.value;
   profileText.textContent = jobInput.value;
 
   closeModal(popupActive);
-
 }
 
 closeElem.forEach((element) => {
   element.addEventListener("click", () => {
     popupProfile.classList.remove("popup_opened");
     popupCard.classList.remove("popup_opened");
-    popupLightbox.classList.remove('popup_opened');
+    popupLightbox.classList.remove("popup_opened");
   });
 });
 
@@ -97,11 +94,9 @@ form.addEventListener("submit", formSubmitHandler);
 
 //карточки
 
-const lightbox = document.querySelector('.lightbox');
-const lightboxImg = document.querySelector('.lightbox__image');
-const lightboxTitle = document.querySelector('.lightbox__title');
-
-
+const lightbox = document.querySelector(".lightbox");
+const lightboxImg = document.querySelector(".lightbox__image");
+const lightboxTitle = document.querySelector(".lightbox__title");
 
 function createElem(link, name) {
   const tempElem = document.querySelector("#tmpl-elem").content;
@@ -110,7 +105,7 @@ function createElem(link, name) {
 
   const elemImage = newElem.querySelector(".element__image");
 
-  elemImage.addEventListener('click', ()=> {
+  elemImage.addEventListener("click", () => {
     openPopup(popupLightbox);
 
     lightboxImg.src = elemImage.src;
@@ -142,17 +137,13 @@ const renderCard = (link, name) => {
 
 initialCards.forEach((item) => renderCard(item.link, item.name));
 
-
-
-
-
 openPopupBtn.addEventListener("click", () => {
   openPopup(popupCard);
 });
 
 const elemFormBtn = document.querySelector('button[name="element"]');
 
-elemFormBtn.addEventListener('submit', (elem)=>{
+elemFormBtn.addEventListener("submit", (elem) => {
   elem.preventDefault;
   renderCard(createElem(textInput.value, linkInput.value));
   closeModal(popupCard);
