@@ -1,6 +1,6 @@
 const openElem = document.querySelector(".profile__info-button");
 const popupElem = document.querySelectorAll(".popup");
-const popupProfile = document.querySelector(".popup__profile");
+const popupProfile = document.querySelector(".popup_profile");
 const closeElem = document.querySelectorAll(".popup__close");
 const form = document.querySelector(".form");
 const nameInput = form.querySelector('input[name="name"]');
@@ -11,16 +11,15 @@ const linkInput = formElement.querySelector('input[name="link"]');
 const profileName = document.querySelector(".profile__info-name");
 const profileText = document.querySelector(".profile__info-text");
 const likeElem = document.querySelector(".element__like");
-const popupCard = document.querySelector(".popup__card");
+const popupCard = document.querySelector(".popup_card");
 const openPopupBtn = document.querySelector(".profile__add-button");
 const elemContainer = document.querySelector(".elements");
 const formElem = document.querySelector("form__element");
 const formElemText = document.querySelector('input[name="text"]');
 const formElemLink = document.querySelector('input[name="link"]');
-const popupLightbox = document.querySelector(".popup__lightbox");
-const lightbox = document.querySelector(".lightbox");
-const lightboxImg = document.querySelector(".lightbox__image");
-const lightboxTitle = document.querySelector(".lightbox__title");
+const popupLightbox = document.querySelector(".popup_lightbox");
+const lightboxImg = document.querySelector(".popup_lightbox-img");
+const lightboxTitle = document.querySelector(".popup_lightbox-text");
 
 
 const handleLikeBtn = (event) => {
