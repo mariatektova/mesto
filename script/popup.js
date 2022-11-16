@@ -14,45 +14,25 @@ const likeElem = document.querySelector(".element__like");
 const popupCard = document.querySelector(".popup__card");
 const openPopupBtn = document.querySelector(".profile__add-button");
 const elemContainer = document.querySelector(".elements");
-const initialCards = [
-  {
-    name: "Архыз",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg",
-  },
-  {
-    name: "Челябинская область",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg",
-  },
-  {
-    name: "Иваново",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg",
-  },
-  {
-    name: "Камчатка",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg",
-  },
-  {
-    name: "Холмогорский район",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg",
-  },
-  {
-    name: "Байкал",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg",
-  },
-];
+const formElem = document.querySelector("form__element");
+const formElemText = document.querySelector('input[name="text"]');
+const formElemLink = document.querySelector('input[name="link"]');
+const popupLightbox = document.querySelector(".popup__lightbox");
+const lightbox = document.querySelector(".lightbox");
+const lightboxImg = document.querySelector(".lightbox__image");
+const lightboxTitle = document.querySelector(".lightbox__title");
+
+
 const handleLikeBtn = (event) => {
   event.target
-    .closest(".element__like")
-    .classList.toggle("element__like_active");
+    .closest(".element__like").classList.toggle("element__like_active");
 };
 
 const handleDeleteElem = (event) => {
   event.target.closest(".element").remove();
 };
-const formElem = document.querySelector("form__element");
-const formElemText = document.querySelector('input[name="text"]');
-const formElemLink = document.querySelector('input[name="link"]');
-const popupLightbox = document.querySelector(".popup__lightbox");
+
+
 
 function changeValue() {
   nameInput.value = profileName.textContent;
@@ -64,7 +44,7 @@ function openPopup(popup) {
   changeValue();
 }
 
-function closeModal(popup) {
+function closePopup(popup) {
   popup.classList.remove("popup_opened");
 }
 
@@ -75,7 +55,7 @@ function formSubmitHandler(elem) {
   profileName.textContent = nameInput.value;
   profileText.textContent = jobInput.value;
 
-  closeModal(popupProfile);
+  closePopup(popupProfile);
 }
 
 closeElem.forEach((element) => {
@@ -94,9 +74,7 @@ form.addEventListener("submit", formSubmitHandler);
 
 //карточки
 
-const lightbox = document.querySelector(".lightbox");
-const lightboxImg = document.querySelector(".lightbox__image");
-const lightboxTitle = document.querySelector(".lightbox__title");
+
 
 function createElem(link, name) {
   const tempElem = document.querySelector("#tmpl-elem").content;
@@ -141,9 +119,8 @@ openPopupBtn.addEventListener("click", () => {
   openPopup(popupCard);
 });
 
-
 formElement.addEventListener("submit", (elem) => {
   elem.preventDefault(formElement);
-  renderCard(linkInput.value,textInput.value);
-  closeModal(popupCard);
+  renderCard(linkInput.value, textInput.value);
+  closePopup(popupCard);
 });
