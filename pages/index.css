@@ -35,11 +35,12 @@
 @import url(../blocks/popup/_card/popup_card.css);
 @import url(../blocks/popup/_profile/popup_profile.css);
 @import url(../blocks/popup/_lightbox/popup_lightbox.css);
-@import url(../blocks/popup/_lightbox/popup_lightbox_img.css);
-@import url(../blocks/popup/_lightbox/popup_lightbox_text.css);
+
 
 @import url(../blocks/popup/__close/popup__close.css);
 @import url(../blocks/popup/__title/popup__title.css);
+@import url(../blocks/popup/__lbx-img/popup__lbx-img.css);
+@import url(../blocks/popup/__lbx-txt/popup__lbx-txt.css);
 
 @import url(../blocks/popup/__container/popup__container.css);
 @import url(../blocks/popup/__container/popup__container-form.css);
