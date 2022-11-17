@@ -1,8 +1,8 @@
 const openElem = document.querySelector(".profile__info-button");
-const popupElem = document.querySelectorAll(".popup");
+const popupElems = document.querySelectorAll(".popup");
 const popupProfile = document.querySelector(".popup_profile");
-const closeElem = document.querySelectorAll(".popup__close");
-const form = document.querySelector(".form");
+const closeElems = document.querySelectorAll(".popup__close");
+const formProfile = document.querySelector(".form_profile");
 const nameInput = form.querySelector('input[name="name"]');
 const jobInput = form.querySelector('input[name="job"]');
 const formElement = document.querySelector('form[name ="element"]');
@@ -20,18 +20,17 @@ const formElemLink = document.querySelector('input[name="link"]');
 const popupLightbox = document.querySelector(".popup_lightbox");
 const lightboxImg = document.querySelector(".popup__lbx-img");
 const lightboxTitle = document.querySelector(".popup__lbx-txt");
-
+const tempElem = document.querySelector("#tmpl-elem").content;
 
 const handleLikeBtn = (event) => {
   event.target
-    .closest(".element__like").classList.toggle("element__like_active");
+    .closest(".element__like")
+    .classList.toggle("element__like_active");
 };
 
 const handleDeleteElem = (event) => {
   event.target.closest(".element").remove();
 };
-
-
 
 function changeValue() {
   nameInput.value = profileName.textContent;
@@ -40,16 +39,14 @@ function changeValue() {
 
 function openPopup(popup) {
   popup.classList.add("popup_opened");
-  changeValue();
 }
 
 function closePopup(popup) {
   popup.classList.remove("popup_opened");
 }
 
-function formSubmitHandler(elem) {
+function handleFormProfileSubmit(elem) {
   elem.preventDefault();
-  const popupTarget = elem.target.closest(".popup");
 
   profileName.textContent = nameInput.value;
   profileText.textContent = jobInput.value;
@@ -57,27 +54,21 @@ function formSubmitHandler(elem) {
   closePopup(popupProfile);
 }
 
-closeElem.forEach((element) => {
-  element.addEventListener("click", () => {
-    popupProfile.classList.remove("popup_opened");
-    popupCard.classList.remove("popup_opened");
-    popupLightbox.classList.remove("popup_opened");
-  });
+closeElems.forEach((button) => {
+  const popup = button.closest(".popup");
+  button.addEventListener("click", () => closePopup(popup));
 });
 
 openElem.addEventListener("click", () => {
   openPopup(popupProfile);
+  changeValue();
 });
 
-form.addEventListener("submit", formSubmitHandler);
+formProfile.addEventListener("submit", handleFormProfileSubmit);
 
 //карточки
 
-
-
 function createElem(link, name) {
-  const tempElem = document.querySelector("#tmpl-elem").content;
-
   const newElem = tempElem.querySelector(".element").cloneNode(true);
 
   const elemImage = newElem.querySelector(".element__image");
@@ -86,6 +77,7 @@ function createElem(link, name) {
     openPopup(popupLightbox);
 
     lightboxImg.src = elemImage.src;
+    lightboxImg.alt = elemName.textContent;
     lightboxTitle.textContent = elemName.textContent;
   });
 
@@ -118,8 +110,9 @@ openPopupBtn.addEventListener("click", () => {
   openPopup(popupCard);
 });
 
-formElement.addEventListener("submit", (elem) => {
-  elem.preventDefault(formElement);
+formElement.addEventListener("submit", (event) => {
+  event.preventDefault(formElement);
   renderCard(linkInput.value, textInput.value);
   closePopup(popupCard);
+  event.target.reset();
 });
