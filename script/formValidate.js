@@ -1,3 +1,12 @@
+const validationConfig = ({
+  formSelector: '.form',
+  inputSelector: '.form__input',
+  submitButtonSelector: '.form__button',
+  inactiveButtonClass: 'form__button_inactive',
+  inputErrorClass: 'form__input_type_error',
+  errorClass: 'form__input-error_active'
+});
+
 const showInputError = (formElement, inputElement, errorMessage) => {
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
   inputElement.classList.add('form__input_type_error');
@@ -21,23 +30,19 @@ const checkInputValidity = (formElement, inputElement) => {
 };
 
 
-/*const toggleButtonState = (inputList, buttonElement) => {
-  // Если есть хотя бы один невалидный инпут
-  if (hasInvalidInput(inputList)) {
-    // сделай кнопку неактивной
-    buttonElement.classList.add('form__button_inactive');
-  } else {
-    // иначе сделай кнопку активной
-    buttonElement.classList.remove('form__button_inactive');
-  }
-};*/
-const hasInvalidInput = (inputList) => {
-  // проходим по этому массиву методом some
-  return inputList.some((inputElement) => {
-    // Если поле не валидно, колбэк вернёт true
-    // Обход массива прекратится и вся функция
-    // hasInvalidInput вернёт true
+const toggleButtonState = (inputList, buttonElement) => {
 
+  if (hasInvalidInput(inputList)) {
+    buttonElement.classList.add('form__button_inactive');
+    buttonElement.disabled = true;
+  } else {
+    buttonElement.classList.remove('form__button_inactive');
+    buttonElement.disabled = false;
+
+  }
+}
+const hasInvalidInput = (inputList) => {
+  return inputList.some((inputElement) => {
     return !inputElement.validity.valid;
   })
 };
@@ -45,12 +50,12 @@ const hasInvalidInput = (inputList) => {
 const setEventListeners = (formElement) => {
   const inputList = Array.from(formElement.querySelectorAll('.form__input'));
   const buttonElement = formElement.querySelector('.form__button');
-   //  toggleButtonState(inputList, buttonElement);
+   toggleButtonState(inputList, buttonElement);
 
   inputList.forEach((inputElement) => {
     inputElement.addEventListener('input', function () {
       checkInputValidity(formElement, inputElement);
-   //   toggleButtonState(inputList, buttonElement);
+   toggleButtonState(inputList, buttonElement);
     });
   });
 };
@@ -60,7 +65,7 @@ const enableValidation = () => {
   formList.forEach((formElement) => {
     formElement.addEventListener('submit', function (evt) {
       evt.preventDefault();
-    });
+    })
  const fieldsetList = Array.from(formElement.querySelectorAll('.form__set'));
 
 fieldsetList.forEach((fieldSet) => {
@@ -68,7 +73,6 @@ fieldsetList.forEach((fieldSet) => {
   });
   });
 };
-
-enableValidation();
+enableValidation(validationConfig);
 
 
