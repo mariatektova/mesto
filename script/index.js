@@ -1,4 +1,4 @@
-const openElem = document.querySelector(".profile__info-button");
+const buttonProfileOpen = document.querySelector(".profile__info-button");
 const popupElems = document.querySelectorAll(".popup");
 const popupBody = document.querySelectorAll(".popup__container");
 const popupProfile = document.querySelector(".popup_profile");
@@ -6,14 +6,14 @@ const closeElems = document.querySelectorAll(".popup__close");
 const formProfile = document.querySelector(".form_profile");
 const nameInput = form.querySelector('input[name="name"]');
 const jobInput = form.querySelector('input[name="job"]');
-const formElement = document.querySelector('form[name ="element"]');
-const textInput = formElement.querySelector('input[name="title"]');
-const linkInput = formElement.querySelector('input[name="link"]');
+const formAddCard = document.querySelector('form[name ="element"]');
+const textInput = formAddCard.querySelector('input[name="title"]');
+const linkInput = formAddCard.querySelector('input[name="link"]');
 const profileName = document.querySelector(".profile__info-name");
 const profileText = document.querySelector(".profile__info-text");
-const likeElem = document.querySelector(".element__like");
+const buttonLike = document.querySelector(".element__like");
 const popupCard = document.querySelector(".popup_card");
-const openPopupBtn = document.querySelector(".profile__add-button");
+const  buttonCardOpen = document.querySelector(".profile__add-button");
 const elemContainer = document.querySelector(".elements");
 const formElem = document.querySelector("form__element");
 const formElemText = document.querySelector('input[name="text"]');
@@ -22,6 +22,7 @@ const popupLightbox = document.querySelector(".popup_lightbox");
 const lightboxImg = document.querySelector(".popup__lbx-img");
 const lightboxTitle = document.querySelector(".popup__lbx-txt");
 const tempElem = document.querySelector("#tmpl-elem").content;
+const buttonCardSubmit = formAddCard.querySelector('button[name="element"]');
 
 const handleLikeBtn = (event) => {
   event.target
@@ -36,25 +37,26 @@ const handleDeleteElem = (event) => {
 function changeValue() {
   nameInput.value = profileName.textContent;
   jobInput.value = profileText.textContent;
-}
+};
 
 function closePopupByEsc(event) {
   if (event.key === "Escape") {
     const popupOpened = document.querySelector('.popup_opened');
     closePopup(popupOpened);
   }
-}
+};
+
 function openPopup(popup) {
   popup.classList.add("popup_opened");
   document.addEventListener('keydown', closePopupByEsc);
-}
+
+};
 
 function closePopup(popup) {
   popup.classList.remove("popup_opened");
   document.removeEventListener('keydown', closePopupByEsc);
 
-}
-
+};
 
 function handleFormProfileSubmit(elem) {
   elem.preventDefault();
@@ -70,7 +72,7 @@ closeElems.forEach((button) => {
   button.addEventListener("click", () => closePopup(popup));
 });
 
-openElem.addEventListener("click", () => {
+  buttonProfileOpen.addEventListener("click", () => {
   openPopup(popupProfile);
   changeValue();
 });
@@ -103,9 +105,7 @@ function createElem(link, name) {
   elemImage.alt = name;
   elemName.textContent = name;
 
-  const elemDeleteBtn = document.createElement("button");
-  elemDeleteBtn.classList.add("element__delete-btn");
-  newElem.appendChild(elemDeleteBtn);
+const elemDeleteBtn = newElem.querySelector('.element__delete-btn');
   elemDeleteBtn.addEventListener("click", handleDeleteElem);
 
   return newElem;
@@ -117,15 +117,16 @@ const renderCard = (link, name) => {
 
 initialCards.forEach((item) => renderCard(item.link, item.name));
 
-openPopupBtn.addEventListener("click", () => {
+  buttonCardOpen.addEventListener("click", () => {
   openPopup(popupCard);
 });
 
-formElement.addEventListener("submit", (event) => {
-  event.preventDefault(formElement);
+formAddCard.addEventListener("submit", (event, buttonElement) => {
+  event.preventDefault(formAddCard);
   renderCard(linkInput.value, textInput.value);
   closePopup(popupCard);
   event.target.reset();
+  buttonCardSubmit.disabled = true;
 });
 
 
@@ -136,7 +137,7 @@ popupBody.forEach((elem) => {;
 
 });
 popupElems.forEach((popup) => {;
-  popup.addEventListener('click',(ev) => {
+  popup.addEventListener('mousedown',(ev) => {
   if( ev.target === ev.currentTarget) {
     closePopup(popup);
   }
