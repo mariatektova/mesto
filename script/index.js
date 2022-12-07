@@ -80,7 +80,8 @@ closeElems.forEach((button) => {
 
   buttonProfileOpen.addEventListener("click", () => {
   openPopup(popupProfile);
-  changeValue();
+  changeValue()
+
 });
 
 formProfile.addEventListener("submit", handleFormProfileSubmit);
