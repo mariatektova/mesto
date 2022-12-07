@@ -22,11 +22,11 @@ const hideInputError = (formElement, inputElement, validationConfig) => {
   errorElement.textContent = '';
 };
 
-const checkInputValidity = (formElement, inputElement) => {
+const checkInputValidity = (formElement, inputElement, validationConfig) => {
   if (!inputElement.validity.valid) {
-    showInputError(formElement, inputElement, inputElement.validationMessage);
+    showInputError(formElement, inputElement, inputElement.validationMessage, validationConfig);
   } else {
-    hideInputError(formElement, inputElement);
+    hideInputError(formElement, inputElement,validationConfig);
   }
 };
 
@@ -52,12 +52,12 @@ const hasInvalidInput = (inputList) => {
 const setEventListeners = (formElement, validationConfig) => {
   const inputList = Array.from(formElement.querySelectorAll(validationConfig.inputSelector));
   const buttonElement = formElement.querySelector(validationConfig.submitButtonSelector);
-   toggleButtonState(inputList, buttonElement);
+   toggleButtonState(inputList, buttonElement, validationConfig);
 
   inputList.forEach((inputElement) => {
     inputElement.addEventListener('input', function () {
-      checkInputValidity(formElement, inputElement);
-   toggleButtonState(inputList, buttonElement);
+      checkInputValidity(formElement, inputElement, validationConfig);
+   toggleButtonState(inputList, buttonElement, validationConfig);
     });
   });
 };
@@ -71,7 +71,7 @@ const enableValidation = (validationConfig) => {
  const fieldsetList = Array.from(formElement.querySelectorAll(validationConfig.fieldsetSelector));
 
 fieldsetList.forEach((fieldSet) => {
-  setEventListeners(fieldSet);
+  setEventListeners(fieldSet, validationConfig);
   });
   });
 };
