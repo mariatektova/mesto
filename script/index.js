@@ -135,9 +135,8 @@ formAddCard.addEventListener("submit", (event) => {
   renderCard(linkInput.value, textInput.value);
   closePopup(popupCard);
   event.target.reset();
-  buttonCardSubmit.addEventListener('click',disableBtn(popupCard, validationConfig));
+ disableBtn(buttonCardSubmit);
 });
-
 
 popupBody.forEach((elem) => {;
   elem.addEventListener('click',(ev) => {
