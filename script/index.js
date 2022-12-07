@@ -58,6 +58,12 @@ function closePopup(popup) {
 
 };
 
+function disableBtn(form, select) {
+  const buttonDisabled = form.querySelector(`${select.submitButtonSelector}`);
+  buttonDisabled.disabled = true;
+  buttonDisabled.classList.add(`${select.inactiveButtonClass}`);
+}
+
 function handleFormProfileSubmit(elem) {
   elem.preventDefault();
 
@@ -121,12 +127,14 @@ initialCards.forEach((item) => renderCard(item.link, item.name));
   openPopup(popupCard);
 });
 
-formAddCard.addEventListener("submit", (event, buttonElement) => {
+
+
+formAddCard.addEventListener("submit", (event) => {
   event.preventDefault(formAddCard);
   renderCard(linkInput.value, textInput.value);
   closePopup(popupCard);
   event.target.reset();
-  buttonCardSubmit.disabled = true;
+  buttonCardSubmit.addEventListener('click',disableBtn(popupCard, validationConfig));
 });
 
 
