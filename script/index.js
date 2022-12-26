@@ -87,7 +87,6 @@ formProfile.addEventListener("submit", handleFormProfileSubmit);
 
 buttonCardOpen.addEventListener("click", () => {
   openPopup(popupCard);
-  formElem.reset();
 });
 
 
