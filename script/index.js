@@ -87,6 +87,9 @@ formProfile.addEventListener("submit", handleFormProfileSubmit);
 
 buttonCardOpen.addEventListener("click", () => {
   openPopup(popupCard);
+  disableBtn(buttonCardSubmit);
+
+
 });
 
 
@@ -105,8 +108,6 @@ const renderCard = (cardElement) => {
 initialCards.forEach((cardElement) => {
   renderCard(cardElement);
 })
-
-
 
 formAddCard.addEventListener("submit", (event) => {
   event.preventDefault();
