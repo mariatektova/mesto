@@ -1,38 +1,42 @@
-const buttonProfileOpen = document.querySelector(".profile__info-button");
-const popupElems = document.querySelectorAll(".popup");
-const popupBody = document.querySelectorAll(".popup__container");
-const popupProfile = document.querySelector(".popup_profile");
-const closeElems = document.querySelectorAll(".popup__close");
-const formProfile = document.querySelector(".form_profile");
-const nameInput = form.querySelector('input[name="name"]');
-const jobInput = form.querySelector('input[name="job"]');
-const formAddCard = document.querySelector('form[name ="element"]');
-const textInput = formAddCard.querySelector('input[name="title"]');
-const linkInput = formAddCard.querySelector('input[name="link"]');
-const profileName = document.querySelector(".profile__info-name");
-const profileText = document.querySelector(".profile__info-text");
-const buttonLike = document.querySelector(".element__like");
-const popupCard = document.querySelector(".popup_card");
-const  buttonCardOpen = document.querySelector(".profile__add-button");
-const elemContainer = document.querySelector(".elements");
-const formElem = document.querySelector("form__element");
-const formElemText = document.querySelector('input[name="text"]');
-const formElemLink = document.querySelector('input[name="link"]');
-const popupLightbox = document.querySelector(".popup_lightbox");
-const lightboxImg = document.querySelector(".popup__lbx-img");
-const lightboxTitle = document.querySelector(".popup__lbx-txt");
-const tempElem = document.querySelector("#tmpl-elem").content;
-const buttonCardSubmit = formAddCard.querySelector('button[name="element"]');
+import {
+   buttonProfileOpen,
+   popupElems,
+   popupBody,
+   popupProfile,
+   closeElems,
+   formProfile,
+   nameInput,
+   jobInput,
+  formAddCard,
+   textInput,
+   linkInput,
+   profileName,
+   profileText,
+   buttonLike,
+   popupCard,
+   buttonCardOpen,
+   formElem,
+   formElemText,
+   formElemLink,
+   popupLightbox,
+   lightboxImg,
+   lightboxTitle,
+   tempElem,
+   buttonCardSubmit,
+   elemContainer,
+} from './constants.js';
 
-const handleLikeBtn = (event) => {
-  event.target
-    .closest(".element__like")
-    .classList.toggle("element__like_active");
-};
 
-const handleDeleteElem = (event) => {
-  event.target.closest(".element").remove();
-};
+import { initialCards } from './initialCards.js';
+import{ Card } from "./Card.js"
+import { validationConfig } from './constants.js'
+import { FormValidation} from './FormValidation.js';
+
+const profilePopupValidate = new FormValidation(validationConfig, '.form_profile');
+const cardPopupValidate = new FormValidation(validationConfig, '.form_element');
+
+profilePopupValidate.enableValidation();
+cardPopupValidate.enableValidation();
 
 function changeValue() {
   nameInput.value = profileName.textContent;
@@ -46,7 +50,7 @@ function closePopupByEsc(event) {
   }
 };
 
-function openPopup(popup) {
+export const openPopup = (popup) => {
   popup.classList.add("popup_opened");
   document.addEventListener('keydown', closePopupByEsc);
 
@@ -58,11 +62,6 @@ function closePopup(popup) {
 
 };
 
-function disableBtn(form, select) {
-  const buttonDisabled = form.querySelector(`${select.submitButtonSelector}`);
-  buttonDisabled.disabled = true;
-  buttonDisabled.classList.add(`${select.inactiveButtonClass}`);
-}
 
 function handleFormProfileSubmit(elem) {
   elem.preventDefault();
@@ -81,62 +80,48 @@ closeElems.forEach((button) => {
   buttonProfileOpen.addEventListener("click", () => {
   openPopup(popupProfile);
   changeValue()
-
+  profilePopupValidate.resetPopupForm();
 });
 
 formProfile.addEventListener("submit", handleFormProfileSubmit);
 
-//карточки
+buttonCardOpen.addEventListener("click", () => {
+  openPopup(popupCard);
+  formElem.reset();
+});
 
-function createElem(link, name) {
-  const newElem = tempElem.querySelector(".element").cloneNode(true);
 
-  const elemImage = newElem.querySelector(".element__image");
 
-  elemImage.addEventListener("click", () => {
-    openPopup(popupLightbox);
-
-    lightboxImg.src = elemImage.src;
-    lightboxImg.alt = elemName.textContent;
-    lightboxTitle.textContent = elemName.textContent;
-  });
-
-  const elemItem = newElem.querySelector(".element__item");
-
-  const elemName = newElem.querySelector(".element__name");
-
-  const elemLikeBtn = newElem.querySelector(".element__like");
-  elemLikeBtn.addEventListener("click", handleLikeBtn);
-
-  elemImage.src = link;
-  elemImage.alt = name;
-  elemName.textContent = name;
-
-const elemDeleteBtn = newElem.querySelector('.element__delete-btn');
-  elemDeleteBtn.addEventListener("click", handleDeleteElem);
-
-  return newElem;
+const handleCardPopup = (link, name) => {
+  openPopup(popupLightbox);
+  lightboxImg.src = link;
+  lightboxTitle.textContent = name;
 }
 
-const renderCard = (link, name) => {
-  elemContainer.prepend(createElem(link, name));
-};
+const renderCard = (cardElement) => {
+  const card = new Card(cardElement, '#tmpl-elem',handleCardPopup);
+  elemContainer.prepend(card.getView());
+}
 
-initialCards.forEach((item) => renderCard(item.link, item.name));
-
-  buttonCardOpen.addEventListener("click", () => {
-  openPopup(popupCard);
-});
+initialCards.forEach((cardElement) => {
+  renderCard(cardElement);
+})
 
 
 
 formAddCard.addEventListener("submit", (event) => {
-  event.preventDefault(formAddCard);
-  renderCard(linkInput.value, textInput.value);
+  event.preventDefault();
+
+  const cardInputs = {
+    name: textInput.value,
+    link: linkInput.value,
+
+}
+  renderCard(cardInputs);
   closePopup(popupCard);
+  cardPopupValidate.resetPopupForm();
   event.target.reset();
- disableBtn(buttonCardSubmit);
-});
+})
 
 popupBody.forEach((elem) => {;
   elem.addEventListener('click',(ev) => {
@@ -150,6 +135,7 @@ popupElems.forEach((popup) => {;
     closePopup(popup);
   }
 });
+
 });
 
 

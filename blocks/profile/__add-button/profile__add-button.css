@@ -25,7 +25,11 @@
   opacity: 0.6;
   transition: 0.2 linear;
 }
-
+@media screen and (min-width: 321px) {
+  .profile__add-button {
+    max-width: 70%;
+  }
+}
 @media screen and (min-width: 500px) {
   .profile__add-button {
     max-width: 60%;
