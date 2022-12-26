@@ -1,3 +1,4 @@
+/*спасибо за ревью, код закрытия попапов обязательно освою*/
 import {
    buttonProfileOpen,
    popupElems,
@@ -78,18 +79,21 @@ closeElems.forEach((button) => {
 });
 
   buttonProfileOpen.addEventListener("click", () => {
+
   openPopup(popupProfile);
   changeValue()
+  profilePopupValidate.disableBtn();
+
   profilePopupValidate.resetPopupForm();
+
 });
 
 formProfile.addEventListener("submit", handleFormProfileSubmit);
 
 buttonCardOpen.addEventListener("click", () => {
   openPopup(popupCard);
-  disableBtn(buttonCardSubmit);
-
-
+  cardPopupValidate.disableBtn();
+  cardPopupValidate.resetPopupForm();
 });
 
 
@@ -100,9 +104,14 @@ const handleCardPopup = (link, name) => {
   lightboxTitle.textContent = name;
 }
 
+function createCard(cardElement) {
+  const card = new Card(cardElement, '#tmpl-elem', handleCardPopup);
+  return card.getView()
+}
+
 const renderCard = (cardElement) => {
-  const card = new Card(cardElement, '#tmpl-elem',handleCardPopup);
-  elemContainer.prepend(card.getView());
+  const cardCreation = createCard(cardElement)
+  elemContainer.prepend(cardCreation);
 }
 
 initialCards.forEach((cardElement) => {
